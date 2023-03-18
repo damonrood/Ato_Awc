@@ -4,6 +4,7 @@
 #include "ESPAsyncWebServer.h"
 #include "ESPAsyncWiFiManager.h"         //https://gitWiFiManagerhub.com/tzapu/WiFiManager
 //#include <WiFiManager.h>
+#include <AsyncElegantOTA.h>
 #include <WebSerial.h>
 #include <ESPmDNS.h>
 #include "fishScheduler.h"
@@ -99,7 +100,7 @@ void setup() {
 
   Serial.println("local ip");
   Serial.println(WiFi.localIP());
-
+AsyncElegantOTA.begin(&server);
   server.begin();
  WebSerial.begin(&server);
  delay(100);
